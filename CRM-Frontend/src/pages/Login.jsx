@@ -6,6 +6,7 @@ import 'sweetalert2/src/sweetalert2.scss';
 import { jwtDecode } from 'jwt-decode';
 
 const NewLogin = () => {
+   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
