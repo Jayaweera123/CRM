@@ -10,10 +10,16 @@ import org.springframework.stereotype.Service;
 public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
 
     @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public UserDetailsService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
-        return userRepository.findByEmail(username).orElseThrow() ;
+        return userRepository.findByEmail(username)
+                .orElseThrow(() -> new UsernameNotFoundException(
+                        "User with email " + username + " not found"
+                ));
     }
 }
