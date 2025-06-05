@@ -38,7 +38,7 @@ const Sidebar = () => {
         aria-label="Sidebar"
       >
         <div className="h-full px-3 py-4 overflow-y-auto">
-          <ul className="space-y-2 font-medium">
+          <ul className="space-y-2 mt-18 font-medium">
             {/* Sidebar links */}
             <SidebarLink icon="dashboard" label="Dashboard" />
             <SidebarLink icon="grid" label="Kanban" badge="Pro" />
